@@ -1,0 +1,149 @@
+.car-interface {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-gap: 2rem;
+  grid-row-gap: 3rem;
+  grid-template-areas:
+    "camera-view camera-view camera-view camera-view camera-view"
+    ". forward-backward-buttons . left-right-buttons ."
+    ". lights-area  settings-area  police-area ."
+    ". . microphone . .";
+  grid-template-columns: 1fr 1fr auto 1fr 1fr;
+}
+
+.forward-backward-buttons {
+  grid-area: forward-backward-buttons;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.left-right-buttons {
+  grid-area: left-right-buttons;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.camera-view {
+  grid-area: camera-view;
+  aspect-ratio: 1.33;
+}
+
+.car-interface-buttons {
+  grid-area: car-interface-buttons;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.microphone {
+  grid-area: microphone;
+}
+
+.lights-area {
+  grid-area: lights-area;
+  justify-self: center;
+}
+.settings-area {
+  grid-area: settings-area;
+  justify-self: center;
+}
+.police-area {
+  grid-area: police-area;
+  justify-self: center;
+}
+
+$button-size: 35vw;
+
+.action-button {
+  width: $button-size;
+  height: calc($button-size / 2);
+  background-color: var(--tui-text-positive);
+  border-radius: calc($button-size / 2) calc($button-size / 2) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  tui-icon {
+    font-size: 2.5rem;
+    color: white;
+  }
+}
+
+
+.left-right-buttons .action-button {
+  width: calc($button-size / 2);
+  height: $button-size;
+  border-radius: 0 calc($button-size / 2) calc($button-size / 2) 0;
+}
+
+.backward-button {
+  transform: rotate(180deg);
+}
+
+.left-button {
+
+  &.action-button {
+    transform: rotate(180deg);
+  }
+
+  tui-icon {
+    transform: rotate(90deg);
+  }
+}
+
+.right-button {
+  tui-icon {
+    transform: rotate(90deg);
+  }
+}
+
+.action-button:active {
+  background: var(--tui-text-positive-hover);
+}
+
+.settings-button {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 5px;
+
+  &.police {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.lights.active {
+    background: var(--tui-chart-categorical-03);
+  }
+}
+
+.settings-icon-button {
+  background: none;
+  border: none;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+/* Стили для ландшафтной ориентации */
+@media only screen and (orientation: landscape) {
+
+}
+

@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+
+}
+
+.lights {
+  display: none;
+}
+
+.led-lights {
+  fill: white;
+}
+
+.active {
+  .led-lights {
+    animation: siren-blink 0.3s infinite;
+  }
+  .lights {
+    display: block;
+    animation: blink 0.3s infinite;
+  }
+}
+
+@keyframes siren-blink {
+  0% {
+    fill: red;
+  }
+  100% {
+    fill: blue;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
